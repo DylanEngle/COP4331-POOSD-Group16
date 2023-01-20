@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="hero-bg">
+        <header>
+            <a href="#">Network</a>
+        </header>
+
+        <div id="form-container" class="form-container">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <form id="login" class="input-group" action="">
+                <label for="Username">User ID</label>
+                <input type="text" name="username" id="username">
+
+                <label for="Password">Password</label>
+                <input type="text" name="password" id="password">
+
+                <input type="submit" value="Login">
+            </form>
+
+            <form id="register" class="input-group" action="">
+                <label for="First Name">First Name</label>
+                <input type="text" name="nameFirst" id="nameFirst">
+
+                <label for="First Name">Last Name</label>
+                <input type="text" name="nameLast" id="nameLast">
+
+                <label for="Username">User ID</label>
+                <input type="text" name="username" id="username">
+
+                <label for="Password">Password</label>
+                <input type="text" name="password" id="password">
+
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        var form = document.getElementById("form-container");
+
+        function register() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+            form.style.height = "700px";
+        }
+
+        function login() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+            form.style.height = "480px"
+        }
+    </script>
+</body>
+</html>
