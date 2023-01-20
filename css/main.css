@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.hero-bg {
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/network.jpeg');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    text-align: center;
+    padding-bottom: 4em;
+}
+
+header {
+    padding: 1em 0;
+}
+
+.hero-bg a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.form-container {
+    width: 380px;
+    position: relative;
+    background-color: #fff;
+    margin: 6% auto;
+    padding: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: .5s
+}
+
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 0 20px 10px #2e2e2e1f;
+    border-radius: 30px;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #3592b1, #3fadd1);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.input-group {
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transition: .5s
+}
+
+label {
+    color: #2D7D98;
+    font-weight: bold;
+    display: block;
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+input[type = text] {
+    border: 1px solid gray;
+    width: 80%;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 1em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+input[type = submit] {
+    background: linear-gradient(to right, #3592b1, #3fadd1);
+    border: none;
+    width: 50%;
+    color: white;
+    font-weight: bold;
+    margin-top: 1.2em;
+    padding: 1em 0;
+    border-radius: .5em;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+#login {
+    left: 50px;
+}
+
+#register {
+    left: 450px;
+}
+
+#form-container {
+    height: 480px;
+}
+
