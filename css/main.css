@@ -25,6 +25,7 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.2rem;
+    text-transform: uppercase;
 }
 
 .form-container {
@@ -76,33 +77,41 @@ header {
 
 label {
     color: #2D7D98;
-    font-weight: bold;
     display: block;
     margin-top: 1em;
     font-size: 1.2em;
+    text-align: left;
 }
 
 input[type = text] {
     border: 1px solid gray;
-    width: 80%;
+    width: 100%;
     padding: 1em;
     box-sizing: border-box;
     border-radius: 1em;
-    margin-top: 1.2em;
+    margin-top: .5em;
     margin-bottom: 1.2em;
 }
 
 input[type = submit] {
     background: linear-gradient(to right, #3592b1, #3fadd1);
     border: none;
-    width: 50%;
+    width: 70%;
     color: white;
     font-weight: bold;
     margin-top: 1.2em;
     padding: 1em 0;
-    border-radius: .5em;
+    border-radius: 50px;
     font-size: 1.3em;
     cursor: pointer;
+}
+
+#toggle-login {
+    color: white;
+}
+
+#toggle-register {
+    color: black;
 }
 
 #login {
@@ -114,6 +123,6 @@ input[type = submit] {
 }
 
 #form-container {
-    height: 480px;
+    height: 440px;
 }
 

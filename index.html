@@ -17,8 +17,8 @@
         <div id="form-container" class="form-container">
             <div class="button-box">
                 <div id="btn"></div>
-                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                <button type="button" id="toggle-login" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" id="toggle-register" class="toggle-btn" onclick="register()">Register</button>
             </div>
 
             <form id="login" class="input-group" action="">
@@ -55,19 +55,26 @@
         var z = document.getElementById("btn");
 
         var form = document.getElementById("form-container");
+        var log = document.getElementById("toggle-login");
+        var reg = document.getElementById("toggle-register");
+
 
         function register() {
             x.style.left = "-400px";
             y.style.left = "50px";
             z.style.left = "110px";
-            form.style.height = "700px";
+            form.style.height = "660px";
+            reg.style.color = "white";
+            log.style.color = "black";
         }
 
         function login() {
             x.style.left = "50px";
             y.style.left = "450px";
             z.style.left = "0px";
-            form.style.height = "480px"
+            form.style.height = "440px"
+            reg.style.color = "black";
+            log.style.color = "white";
         }
     </script>
 </body>
