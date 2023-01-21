@@ -12,8 +12,8 @@ body {
     background-position: center;
     background-size: cover;
     position: absolute;
-    text-align: center;
     padding-bottom: 4em;
+    text-align: center;
 }
 
 header {
@@ -36,7 +36,8 @@ header {
     padding: 5px;
     border-radius: 30px;
     overflow: hidden;
-    transition: .5s
+    transition: .5s;
+    text-align: center;
 }
 
 .button-box {
@@ -124,5 +125,15 @@ input[type = submit] {
 
 #form-container {
     height: 440px;
+}
+
+@media (min-width: 930px) {
+    .hero-bg {
+        text-align: left;
+    }
+
+    .hero-bg a {
+        margin-left: 1.2em;
+    }
 }
 
