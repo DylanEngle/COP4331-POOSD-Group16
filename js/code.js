@@ -70,6 +70,10 @@ function isLoginValid(loginName,loginPass)
 	if(loginName = ""){
 		console.log("Username is blank.")
 	}
+	else{
+
+	}
+
 }
 
 //get info, package it, send to server
@@ -124,6 +128,7 @@ function doRegister()
     }
 }
 
+
 function saveCookie()
 {
 	let minutes = 20;
@@ -172,6 +177,44 @@ function doLogout()
 	lastName = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
+}
+
+function addContact()
+{
+	let contactFirstName = document.getElementById("contactFirstName").value;
+	let contactLastName = document.getElementById("contactLastName").value;
+	let email = document.getElementById("contactEmail").value;
+	let phoneNumber = document.getElementById("contactPhoneNumber").value;
+
+	let tmp = {
+		contactFirstName: contactFirstName,
+		contactLastName: contactLastName,
+		contactEmail: email,
+		contactPhoneNumber: phoneNumber,
+		userId: userId
+	};
+	
+
+	let JSONPayload = JSON.stringify(tmp);
+
+	let url = urlBase + '/AddContact.' + extension;
+
+	let xhr =  new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type","application/json; charset = UTF-8");
+	try {
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				console.log("Contact Added.");
+				document.getElementById("addContact").reset();
+				loadContacts();
+				showTable();
+			}
+		}
+		xhr.send(JSONPayload);
+	} catch (error) {
+		console.log(err.message);
+	}
 }
 
 
