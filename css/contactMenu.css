@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+    background-image: url('../images/network.jpeg');
+    display: flex;
+    min-height: 100vh;
+}
+
+header {
+    padding: 1em 0;
+    z-index: 10;
+}
+
+.app a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.sidebar {
+    flex: 1 1 0;
+    max-width: 200px;
+    padding: 2rem 1rem;
+    background-color: #0ba1f274;
+    transition: 0.2s linear;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    color: lightgray;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+.sidebar > .menu {
+    margin: 0 -1rem;
+}
+
+.sidebar > .menu > .menu-item {
+    display: block;
+    padding: 1em;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+.sidebar > .menu > .menu-item:hover,
+.sidebar > .menu > .menu-item.is-active {
+    border-right: 5px solid white;
+}
+
+.content {
+    flex: 1 1 0;
+    padding: 2rem;
+}
+
+.list-container {
+    text-align: center;
+}
+.search-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+input[type = 'search'] {
+    width: 80%;
+    border: 0px;
+    font-size: 1rem;
+    border-radius: 100px;
+    height: 30px;
+    padding-left: 2.2em;
+}
+
+#search-img {
+    position: absolute;
+    top: 5px;
+    left: 11%;
+    width: 20px;
+    height: 20px;
+}
+
+.contacts-container {
+    width: 80%;
+    position: relative;
+    background-color: #fff;
+    margin: 6% auto;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: minmax(150, auto);
+    grid-auto-rows: minmax(75px, auto);
+    gap: .25rem;
+    margin-top: 1rem;
+    padding: .5rem;
+}
+
+.card {
+    border: 2px solid #3592b1;
+    background-color: white;
+    padding: .5rem;
+    border-radius: 10px;
+}
+
+.card > .header {
+    margin-bottom: .25rem;
+}
+
+.card > .body {
+    font-size: .8rem;
+    color: #777;
+}
+
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: #087FCF;
+    cursor: pointer;
+}
+
+.hamburger {
+    position: relative;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+}
+
+.hamburger > span,
+.hamburger > span::before,
+.hamburger > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 99px;
+    background-color: white;
+    transition-duration: .25s;
+}
+
+.hamburger > span::before {
+    content: ' ';
+    top: -8px;
+}
+
+.hamburger > span::after {
+    content: ' ';
+    top: 8px;
+}
+
+/* Animations for sidebar toggle */
+.sidebar-toggle.is-active .hamburger > span {
+    transform: rotate(45deg);
+}
+
+.sidebar-toggle.is-active .hamburger > span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+.sidebar-toggle.is-active .hamburger > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.hide {
+    display: none;
+}
+
+/* Reative changes */
+@media (max-width: 1024px) {
+    .sidebar {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        text-align: center;
+    }
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .content {
+        padding-top: 8rem;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100vh;
+        width: 100%;
+        max-width: 200px;
+        transition: 0.2s linear;
+    }
+
+    .sidebar.is-active {
+        left: 0;
+    }
+}

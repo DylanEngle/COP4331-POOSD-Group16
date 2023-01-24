@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contactMenu.css">
+    <script src="js/contactMenu.js" defer></script>
+    <title>Responsive Sidebar</title>
+</head>
+<body>
+    <div class="app">
+        <div class="sidebar-toggle">
+            <div class="hamburger">
+                <span></span>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <h3>Menu</h3>
+
+            <nav class="menu">
+                <a href="#" class="menu-item is-active">Home</a>
+                <a href="#" class="menu-item">About</a>
+                <a href="#" class="menu-item">Logout</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <a href="#">Network</a>
+            </header>
+    
+            <div class="list-container">
+                <div class="search-wrapper">
+                    <input type="search" id="search" placeholder="Search" data-search>
+                    <img src="images/magnifyingGlass.png" id="search-img">
+                </div>
+        
+                <div class="contacts-container">
+                    <div class="contact-cards" data-contact-cards-container></div>
+                    <template data-contact-template>
+                        <div class="card">
+                            <div class="header" data-header></div>
+                            <div class="body">
+                                <div class="number" data-number></div>
+                                <div class="email" data-email></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebar_toggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        sidebar_toggle.addEventListener('click', () => {
+            sidebar_toggle.classList.toggle('is-active');
+            sidebar.classList.toggle('is-active');
+        })
+    </script>
+</body>
+</html>
