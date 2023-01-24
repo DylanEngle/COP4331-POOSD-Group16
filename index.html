@@ -35,19 +35,20 @@
             </form>
 
             <form id="register" class="input-group" action="">
-                <label for="First Name">First Name</label>
-                <input type="text" name="nameFirst" id="nameFirst" placeholder="first name">
+                <label for="First Name" style="position:relative; top:-35px;">First Name</label>
+                <input type="text" name="nameFirst" id="nameFirst" placeholder="first name"  style="position:relative; top:-35px;">
 
-                <label for="First Name">Last Name</label>
-                <input type="text" name="nameLast" id="nameLast" placeholder="last name">
+                <label for="Last Name"  style="position:relative; top:-65px;">Last Name</label>
+                <input type="text" name="nameLast" id="nameLast" placeholder="last name"  style="position:relative; top:-65px;">
 
-                <label for="Username">User ID</label>
-                <input type="text" name="username" id="username" placeholder="username">
+                <label for="Username"  style="position:relative; top:-95px;">User ID</label>
+                <input type="text" name="username" id="username" placeholder="username"  style="position:relative; top:-95px;">
 
-                <label for="Password">Password</label>
-                <input type="text" name="password" id="password" placeholder="password">
+                <label for="Password"  style="position:relative; top:-125px;">Password</label>
+                <input type="text" name="password" id="password" placeholder="password"  style="position:relative; top:-125px;">
 
-                <input type="submit" value="Register" onclick="doRegister()">
+                <input type="submit" value="Register" onclick="doRegister()"  style="position:relative; top:-150px;">
+                <span class="text" id="signupResult"></span>
             </form>
         </div>
     </div>
@@ -66,7 +67,7 @@
             x.style.left = "-400px";
             y.style.left = "50px";
             z.style.left = "110px";
-            form.style.height = "660px";
+            form.style.height = "500px";
             reg.style.color = "white";
             log.style.color = "black";
         }

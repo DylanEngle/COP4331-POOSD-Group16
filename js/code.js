@@ -1,4 +1,4 @@
-const urlBase = 'http://cop4331group16.xyz/LAMPAPI';
+const urlBase = 'http://cop4331group16.xyz/API';
 const extension = 'php';
 
 let userId = 0;
@@ -62,6 +62,16 @@ function doLogin()
 
 }
 
+function isLoginValid(loginName,loginPass)
+{
+	let loginNameErr = true;
+	let loginPass = true;
+
+	if(loginName = ""){
+		console.log("Username is blank.")
+	}
+}
+
 //get info, package it, send to server
 function doRegister()
 {
@@ -83,7 +93,7 @@ function doRegister()
 
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/SignUp.' + extension;
+    let url = urlBase + '/AddUser.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST",url,true);
