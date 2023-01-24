@@ -1,4 +1,4 @@
-const urlBase = 'http://cop4331group16.xyz/LAMPAPI';
+const urlBase = 'http://cop4331group16.xyz/API';
 const extension = 'php';
 
 let userId = 0;
@@ -50,7 +50,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -58,6 +58,20 @@ function doLogin()
 	catch(err)
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+
+function isLoginValid(loginName,loginPass)
+{
+	let loginNameErr = true;
+	let loginPass = true;
+
+	if(loginName = ""){
+		console.log("Username is blank.")
+	}
+	else{
+
 	}
 
 }
@@ -83,7 +97,7 @@ function doRegister()
 
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/SignUp.' + extension;
+    let url = urlBase + '/AddUser.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST",url,true);
@@ -113,6 +127,7 @@ function doRegister()
         document.getElementById("signUpResult").innerHTML = err.message;
     }
 }
+
 
 function saveCookie()
 {
@@ -162,6 +177,44 @@ function doLogout()
 	lastName = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
+}
+
+function addContact()
+{
+	let contactFirstName = document.getElementById("contactFirstName").value;
+	let contactLastName = document.getElementById("contactLastName").value;
+	let email = document.getElementById("contactEmail").value;
+	let phoneNumber = document.getElementById("contactPhoneNumber").value;
+
+	let tmp = {
+		contactFirstName: contactFirstName,
+		contactLastName: contactLastName,
+		contactEmail: email,
+		contactPhoneNumber: phoneNumber,
+		userId: userId
+	};
+	
+
+	let JSONPayload = JSON.stringify(tmp);
+
+	let url = urlBase + '/AddContact.' + extension;
+
+	let xhr =  new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type","application/json; charset = UTF-8");
+	try {
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				console.log("Contact Added.");
+				document.getElementById("addContact").reset();
+				loadContacts();
+				showTable();
+			}
+		}
+		xhr.send(JSONPayload);
+	} catch (error) {
+		console.log(err.message);
+	}
 }
 
 

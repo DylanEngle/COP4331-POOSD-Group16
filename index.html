@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <div class="hero-bg">
         <header>
-            <a href="#">Network</a>
+            <a href="#" id="network">Network</a>
+            <a href="https://github.com/DylanEngle/COP4331-POOSD-Group16" id="githubLink">Welcome to the Network!</a>
         </header>
 
         <div id="form-container" class="form-container">
@@ -23,28 +26,30 @@
 
             <form id="login" class="input-group" action="">
                 <label for="Username">User ID</label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username" id="username" placeholder="username">
 
                 <label for="Password">Password</label>
-                <input type="text" name="password" id="password">
+                <input type="text" name="password" id="password" placeholder="password">
 
-                <input type="submit" value="Login">
+                <input type="submit" value="Login" onclick="doLogin()">
+                <span class="text" id="loginResult" ></span>
             </form>
 
             <form id="register" class="input-group" action="">
-                <label for="First Name">First Name</label>
-                <input type="text" name="nameFirst" id="nameFirst">
+                <label for="First Name" style="position:relative; top:-35px;">First Name</label>
+                <input type="text" name="nameFirst" id="nameFirst" placeholder="first name"  style="position:relative; top:-35px;">
 
-                <label for="First Name">Last Name</label>
-                <input type="text" name="nameLast" id="nameLast">
+                <label for="Last Name"  style="position:relative; top:-65px;">Last Name</label>
+                <input type="text" name="nameLast" id="nameLast" placeholder="last name"  style="position:relative; top:-65px;">
 
-                <label for="Username">User ID</label>
-                <input type="text" name="username" id="username">
+                <label for="Username"  style="position:relative; top:-95px;">User ID</label>
+                <input type="text" name="username" id="username" placeholder="username"  style="position:relative; top:-95px;">
 
-                <label for="Password">Password</label>
-                <input type="text" name="password" id="password">
+                <label for="Password"  style="position:relative; top:-125px;">Password</label>
+                <input type="text" name="password" id="password" placeholder="password"  style="position:relative; top:-125px;">
 
-                <input type="submit" value="Register">
+                <input type="submit" value="Register" onclick="doRegister()"  style="position:relative; top:-150px;">
+                <span class="text" id="signupResult"></span>
             </form>
         </div>
     </div>
@@ -63,7 +68,7 @@
             x.style.left = "-400px";
             y.style.left = "50px";
             z.style.left = "110px";
-            form.style.height = "660px";
+            form.style.height = "500px";
             reg.style.color = "white";
             log.style.color = "black";
         }
