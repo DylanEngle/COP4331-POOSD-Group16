@@ -8,7 +8,12 @@
 }
 
 .app {
+    height: 100%;
+    width: 100%;
     background-image: url('../images/network.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     min-height: 100vh;
 }
@@ -67,6 +72,7 @@ header {
 .list-container {
     text-align: center;
 }
+
 .search-wrapper {
     width: 100%;
     position: relative;
