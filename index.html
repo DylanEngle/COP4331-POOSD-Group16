@@ -14,7 +14,6 @@
     <div class="hero-bg">
         <header>
             <a href="#" id="network">Network</a>
-            <a href="https://github.com/DylanEngle/COP4331-POOSD-Group16" id="githubLink">Welcome to the Network!</a>
         </header>
 
         <div id="form-container" class="form-container">
@@ -26,32 +25,36 @@
 
             <form id="login" class="input-group" action="">
                 <label for="Username">User ID</label>
-                <input type="text" name="username" id="username" placeholder="username">
+                <input type="text" name="username" id="username">
 
                 <label for="Password">Password</label>
-                <input type="text" name="password" id="password" placeholder="password">
+                <input type="text" name="password" id="password">
 
                 <input type="submit" value="Login" onclick="doLogin()">
                 <span class="text" id="loginResult" ></span>
             </form>
 
             <form id="register" class="input-group" action="">
-                <label for="First Name" style="position:relative; top:-35px;">First Name</label>
-                <input type="text" name="nameFirst" id="nameFirst" placeholder="first name"  style="position:relative; top:-35px;">
+                <label for="First Name">First Name</label>
+                <input type="text" name="nameFirst" id="nameFirst">
 
-                <label for="Last Name"  style="position:relative; top:-65px;">Last Name</label>
-                <input type="text" name="nameLast" id="nameLast" placeholder="last name"  style="position:relative; top:-65px;">
+                <label for="Last Name">Last Name</label>
+                <input type="text" name="nameLast" id="nameLast">
 
-                <label for="Username"  style="position:relative; top:-95px;">User ID</label>
-                <input type="text" name="username" id="username" placeholder="username"  style="position:relative; top:-95px;">
+                <label for="Username">User ID</label>
+                <input type="text" name="username" id="username">
 
-                <label for="Password"  style="position:relative; top:-125px;">Password</label>
-                <input type="text" name="password" id="password" placeholder="password"  style="position:relative; top:-125px;">
+                <label for="Password">Password</label>
+                <input type="text" name="password" id="password">
 
-                <input type="submit" value="Register" onclick="doRegister()"  style="position:relative; top:-150px;">
+                <input type="submit" value="Register" onclick="doRegister()">
                 <span class="text" id="signupResult"></span>
             </form>
         </div>
+
+        <footer>
+            <a href="https://github.com/DylanEngle/COP4331-POOSD-Group16" id="githubLink"><img src="images/github.png" id="githubImage"></a>
+        </footer>
     </div>
 
     <script>
@@ -68,7 +71,7 @@
             x.style.left = "-400px";
             y.style.left = "50px";
             z.style.left = "110px";
-            form.style.height = "500px";
+            form.style.height = "660px";
             reg.style.color = "white";
             log.style.color = "black";
         }

@@ -28,19 +28,21 @@ header {
     text-transform: uppercase;
 }
 
-#githubLink{
-    color:white;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.5rem;
-    position: relative; left: 275px; top: 40px;
-    
+footer {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #087FCF;
+    height: 80px;
+    width: 80px;
+    border-radius: 99px;
 }
 
-#githubLink:hover{
-    color:blue;
-    transition: 0.2s;
+#githubImage{
+    position: relative;
+    top: 10px;
+    width: 60px;
+    height: 60px;
 }
 
 .form-container {
@@ -79,7 +81,7 @@ header {
     position: absolute;
     width: 110px;
     height: 100%;
-    background: linear-gradient(to right, #3592b1, #3fadd1);
+    background: linear-gradient(to right, #087FCF, #3fadd1);
     border-radius: 30px;
     transition: .5s;
 }
@@ -92,7 +94,7 @@ header {
 }
 
 label {
-    color: #2D7D98;
+    color: #087FCF;
     display: block;
     margin-top: 1em;
     font-size: 1.2em;
@@ -110,7 +112,7 @@ input[type = text] {
 }
 
 input[type = submit] {
-    background: linear-gradient(to right, #3592b1, #3fadd1);
+    background: linear-gradient(to right, #087FCF, #3fadd1);
     border: none;
     width: 70%;
     color: white;
@@ -143,11 +145,11 @@ input[type = submit] {
 }
 
 @media (min-width: 930px) {
-    .hero-bg {
+    header {
         text-align: left;
     }
 
-    .hero-bg a {
+    #network {
         margin-left: 1.2em;
     }
 }
