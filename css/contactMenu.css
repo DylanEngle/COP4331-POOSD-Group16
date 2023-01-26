@@ -23,11 +23,11 @@ header {
     z-index: 10;
 }
 
-.app a {
+#network {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 2rem;
     text-transform: uppercase;
 }
 
@@ -36,7 +36,7 @@ header {
     max-width: 200px;
     padding: 2rem 1rem;
     background-color: #0ba1f274;
-    transition: 0.2s linear;
+    transition: 0.5s linear;
     z-index: 10;
 }
 
@@ -281,7 +281,7 @@ input[type = submit] {
 }
 
 .sidebar-toggle.is-active .hamburger > span::after {
-    top: 50%;
+    top: 0;
     transform: rotate(90deg);
 }
 
@@ -313,6 +313,12 @@ input[type = submit] {
     .content {
         text-align: center;
     }
+
+    header {
+        margin-top: -3em;
+        margin-bottom: 3em;
+    }
+    
     .sidebar-toggle {
         display: block;
     }
@@ -328,7 +334,7 @@ input[type = submit] {
         height: 100vh;
         width: 100%;
         max-width: 200px;
-        transition: 0.2s linear;
+        transition: 0.5s linear;
     }
 
     .sidebar.is-active {
