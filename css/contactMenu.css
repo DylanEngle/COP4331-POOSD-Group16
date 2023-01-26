@@ -108,7 +108,7 @@ input[type = 'search'] {
 }
 
 .card {
-    border: 2px solid #3592b1;
+    border: 2px solid #087FCF;
     background-color: white;
     padding: .5rem;
     border-radius: 10px;
@@ -123,9 +123,108 @@ input[type = 'search'] {
     color: #777;
 }
 
+.add-contact-container {
+    position: absolute;
+    top: -700%;
+    left: 50%;
+    z-index: 30;
+    margin-right: -50%;
+    transform: translate(-50%);
+    width: 380px;
+    height: 500px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 30px;
+    transition: .5s;
+    border: 2px solid #087FCF;
+}
+
+.add-contact-container > h3 {
+    margin-top: 1em;
+    color: #087FCF;
+}
+.input-group {
+    margin-left: 40px;
+    position: relative;
+    width: 80%;
+}
+
+label {
+    color: #087FCF;
+    display: block;
+    margin-top: 1em;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+input[type = text] {
+    border: 1px solid gray;
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 1em;
+    margin-top: .5em;
+    margin-bottom: 1.2em;
+}
+
+input[type = submit] {
+    background: linear-gradient(to right, #087FCF, #3fadd1);
+    border: none;
+    width: 70%;
+    color: white;
+    font-weight: bold;
+    margin-top: 1.2em;
+    padding: 1em 0;
+    border-radius: 50px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.add-contact-toggle {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: #087FCF;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.plus {
+    position: relative;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+}
+
+.plus > span,
+.plus > span::before {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 99px;
+    background-color: white;
+    transition-duration: .5s;
+}
+
+.plus > span::before {
+    content: ' ';
+    height: 32px;
+    width: 4px;
+    top: -15px;
+    left: 14px;
+}
+
 .sidebar-toggle {
     display: none;
     position: fixed;
+    z-index: 100;
     top: 2rem;
     right: 2rem;
     width: 60px;
@@ -176,15 +275,28 @@ input[type = 'search'] {
 }
 
 .sidebar-toggle.is-active .hamburger > span::after {
-    top: 0;
+    top: 50%;
     transform: rotate(90deg);
+}
+
+/* Animations for add contact toggle */
+.add-contact-toggle.is-active .plus > span {
+    transform: rotate(45deg);
+}
+
+.add-contact-toggle.is-active .plus > span::before {
+    transform: rotate(180deg);
 }
 
 .hide {
     display: none;
 }
 
-/* Reative changes */
+.add-contact-container.is-active {
+    top: 200px;
+}
+
+/* Reactive changes */
 @media (max-width: 1024px) {
     .sidebar {
         max-width: 120px;
@@ -215,5 +327,9 @@ input[type = 'search'] {
 
     .sidebar.is-active {
         left: 0;
+    }
+
+    .add-contact-toggle {
+        right: 7em;
     }
 }
