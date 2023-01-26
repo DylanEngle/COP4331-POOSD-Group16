@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/aboutUs.css">
+    <title>About Us</title>
+</head>
+<body>
+    <div class="app">
+        <div class="sidebar-toggle">
+            <div class="hamburger">
+                <span></span>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <h3>Menu</h3>
+
+            <nav class="menu">
+                <a href="#" class="menu-item is-active">Home</a>
+                <a href="#" class="menu-item">About</a>
+                <a href="#" class="menu-item">Logout</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <a href="#">Network</a>
+            </header>
+
+            <div class="container">
+                <div class="gridContainer">
+                    <div class="gridItem"><img src="images/magnifyingGlass.png" alt=""><br>Name</div>
+                    <div class="gridItem"><img src="images/magnifyingGlass.png" alt=""><br>Name</div>
+                    <div class="gridItem"><img src="images/magnifyingGlass.png" alt=""><br>Name</div>
+                    <div class="bottomRow"><img src="images/magnifyingGlass.png" alt=""><br>Name</div>
+                    <div class="bottomRow"><img src="images/magnifyingGlass.png" alt=""><br>Name</div>   
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+    <script>
+        const sidebar_toggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        sidebar_toggle.addEventListener('click', () => {
+            sidebar_toggle.classList.toggle('is-active');
+            sidebar.classList.toggle('is-active');
+        })
+    </script>
+</body>
+</html>
