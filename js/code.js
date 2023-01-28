@@ -19,7 +19,7 @@ function doLogin()
 
 	
 	let tmp = {
-        login:login,
+        login: login,
         password: password
     };
 
@@ -90,8 +90,8 @@ function isLoginValid(loginName,loginPass)
 //get info, package it, send to server
 function doRegister()
 {
-    firstName = document.getElementById("nameFirst").value;
-    lastName = document.getElementById("nameLast").value;
+    firstName = document.getElementById("registerNameFirst").value;
+    lastName = document.getElementById("registerNameLast").value;
     let login = document.getElementById("registerUsername").value;
     let password = document.getElementById("registerPassword").value;
     //let hash = md5( password );
@@ -109,6 +109,7 @@ function doRegister()
 	console.log(jsonPayload);
 
     let url = urlBase + '/AddUser.' + extension;
+    console.log(url);
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST",url,true);
@@ -128,7 +129,7 @@ function doRegister()
             if(this.readyState == 4 && this.status == 200){
                 let jsonObject = JSON.parse(xhr.responseText);
                 userID = jsonObject.id;
-                document.getElementById("signUpResult") = "User Added";
+                document.getElementById("signUpResult").innerHTML = "User Added";
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
                 saveCookie();
