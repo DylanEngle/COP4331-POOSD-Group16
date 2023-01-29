@@ -27,20 +27,16 @@ function doLogin()
 	
 	let url = urlBase + '/Login.' + extension;
 
-	console.log(url);
-
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
-	
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	console.log("!!!");
 	try
 	{
-		console.log("Here.");
 		console.log(xhr.status);
 		console.log(xhr.readyState);
 		xhr.onreadystatechange = function() 
 		{
+			console.log("returned status of: "+this.status);
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
@@ -90,8 +86,8 @@ function isLoginValid(loginName,loginPass)
 //get info, package it, send to server
 function doRegister()
 {
-    firstName = document.getElementById("nameFirst").value;
-    lastName = document.getElementById("nameLast").value;
+    firstName = document.getElementById("registerNameFirst").value;
+    lastName = document.getElementById("registerNameLast").value;
     let login = document.getElementById("registerUsername").value;
     let password = document.getElementById("registerPassword").value;
     //let hash = md5( password );
