@@ -23,18 +23,18 @@
                 <button type="button" id="toggle-register" class="toggle-btn" onclick="register()">Register</button>
             </div>
 
-            <form id="login" class="input-group" action="">
+            <div id="login" class="input-group" action="">
                 <label for="Username">User ID</label>
                 <input type="text" name="username" id="loginUsername">
 
                 <label for="Password">Password</label>
                 <input type="text" name="password" id="loginPassword">
 
-                <input type="submit" value="Login" onclick="doLogin()">
+                <input type="button" value="Login" onclick="doLogin()">
                 <span class="text" id="loginResult" ></span>
-            </form>
+            </div>
 
-            <form id="register" class="input-group" action="">
+            <div id="register" class="input-group" action="">
                 <label for="First Name">First Name</label>
                 <input type="text" name="nameFirst" id="registerNameFirst">
 
@@ -47,9 +47,9 @@
                 <label for="Password">Password</label>
                 <input type="text" name="password" id="registerPassword">
 
-                <input type="submit" value="Register" onclick="doRegister()">
+                <input type="button" value="Register" onclick="doRegister()">
                 <span class="text" id="signUpResult"></span>
-            </form>
+            </div>
         </div>
 
         <footer>

@@ -108,7 +108,7 @@ input[type = text] {
     margin-bottom: 1.2em;
 }
 
-input[type = submit] {
+input[type = button] {
     background: linear-gradient(to right, #087FCF, #3fadd1);
     border: none;
     width: 70%;
