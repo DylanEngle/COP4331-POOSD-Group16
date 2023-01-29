@@ -27,20 +27,16 @@ function doLogin()
 	
 	let url = urlBase + '/Login.' + extension;
 
-	console.log(url);
-
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
-	
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	console.log("!!!");
 	try
 	{
-		console.log("Here.");
 		console.log(xhr.status);
 		console.log(xhr.readyState);
 		xhr.onreadystatechange = function() 
 		{
+			console.log("returned status of: "+this.status);
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
