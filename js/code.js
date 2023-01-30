@@ -181,21 +181,19 @@ function doLogout()
 
 function addContact()
 {
-	let contactFirstName = document.getElementById("contactFirstName").value;
-	let contactLastName = document.getElementById("contactLastName").value;
-	let email = document.getElementById("contactEmail").value;
-	let phoneNumber = document.getElementById("contactPhoneNumber").value;
+	let contactName = document.getElementById("name").value;
+	let email = document.getElementById("email").value;
+	let phoneNumber = document.getElementById("number").value;
 
 	let tmp = {
-		contactFirstName: contactFirstName,
-		contactLastName: contactLastName,
+		contactName: contactName,
 		contactEmail: email,
 		contactPhoneNumber: phoneNumber,
 		userId: userId
 	};
 	
 
-	let JSONPayload = JSON.stringify(tmp);
+	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/AddContact.' + extension;
 
@@ -210,7 +208,7 @@ function addContact()
 				loadContacts();
 			}
 		}
-		xhr.send(JSONPayload);
+		xhr.send(jsonPayload);
 	} catch (error) {
 		console.log(err.message);
 	}
@@ -223,7 +221,7 @@ function loadContacts()
 		userId: userId
 	};
 
-	let JSONPayload = JSON.stringify(tmp);
+	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + "/SearchContacts." + extension;
 
@@ -234,9 +232,9 @@ function loadContacts()
 	xhr.onreadystatechange = function(){
 		try {
 			if(this.readyState == 4 && this.status == 200){
-				let JSONObject = JSON.parse(xhr.responseText);
-				if(JSONObject.error){
-					console.log(JSONObject.error);
+				let jsonObject = JSON.parse(xhr.responseText);
+				if(jsonObject.error){
+					console.log(jsonObject.error);
 					return;
 				}
 				// let text = "starting HTML";
@@ -244,7 +242,7 @@ function loadContacts()
 				// document.getElementByID(id).innerHTML = text;
 				// is function in contactMenu.js usable? ask at meeting
 			}
-			xhr.send(JSONPayload);
+			xhr.send(jsonPayload);
 		} catch (error) {
 			console.log(err.message);
 		}
