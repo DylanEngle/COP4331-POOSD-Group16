@@ -32,11 +32,8 @@ function doLogin()
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-		console.log(xhr.status);
-		console.log(xhr.readyState);
 		xhr.onreadystatechange = function() 
 		{
-			console.log("returned status of: "+this.status);
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
@@ -52,18 +49,14 @@ function doLogin()
 				lastName = jsonObject.lastName;
 
 				saveCookie();
-				console.log("It worked.")
 	
 				window.location.href = "contactMenu.html";
 			}
 		};
 		xhr.send(jsonPayload);
-		console.log(xhr.status);
-		console.log(xhr.readyState);
 	}
 	catch(err)
 	{
-		console.log("Error found!!!");
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
@@ -102,10 +95,8 @@ function doRegister()
     };
 
     let jsonPayload = JSON.stringify(tmp);
-	console.log(jsonPayload);
 
     let url = urlBase + '/AddUser.' + extension;
-    console.log(url);
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST",url,true);
@@ -130,8 +121,6 @@ function doRegister()
                 lastName = jsonObject.lastName;
                 saveCookie();
             }
-
-			console.log("It worked.");
         };
         xhr.send(jsonPayload);
     } catch (err) {
