@@ -4,6 +4,7 @@ const extension = 'php';
 let userId = 0;
 let firstName = "";
 let lastName = "";
+const ids = [];
 
 function doLogin()
 {
@@ -204,7 +205,7 @@ function addContact()
 		xhr.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
 				console.log("Contact Added.");
-				document.getElementById("addContact").reset();
+				document.getElementById("add-contact-container").reset();
 				loadContacts();
 			}
 		}
@@ -254,18 +255,16 @@ function loadContacts()
 function editContact(id)
 {
 
-    var firstNameI = document.getElementById("first_Name" + id);
-    var lastNameI = document.getElementById("last_Name" + id);
-    var email = document.getElementById("email" + id);
-    var phone = document.getElementById("phone" + id);
+    let nameI = document.getElementById("name" + id);
+    let email = document.getElementById("email" + id);
+    let phone = document.getElementById("number" + id);
 
-    var namef_data = firstNameI.innerText;
-    var namel_data = lastNameI.innerText;
-    var email_data = email.innerText;
-    var phone_data = phone.innerText;
+    let namef_data = firstNameI.innerText;
+    let namel_data = lastNameI.innerText;
+    let email_data = email.innerText;
+    let phone_data = phone.innerText;
 
-    firstNameI.innerHTML = "<input type='text' id='namef_text" + id + "' value='" + namef_data + "'>";
-    lastNameI.innerHTML = "<input type='text' id='namel_text" + id + "' value='" + namel_data + "'>";
+    nameI.innerHTML = "<input type='text' id='namef_text" + id + "' value='" + namef_data + "'>";
     email.innerHTML = "<input type='text' id='email_text" + id + "' value='" + email_data + "'>";
     phone.innerHTML = "<input type='text' id='phone_text" + id + "' value='" + phone_data + "'>"
 }
