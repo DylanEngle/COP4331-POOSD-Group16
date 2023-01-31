@@ -41,14 +41,16 @@
                 <label for="Last Name">Last Name</label>
                 <input type="text" name="nameLast" id="registerNameLast">
 
-                <label for="Username">User ID</label>
+                <label for="Username">Username</label>
                 <input type="text" name="username" id="registerUsername">
 
                 <label for="Password">Password</label>
                 <input type="text" name="password" id="registerPassword">
 
-                <input type="button" value="Register" onclick="doRegister()">
-                <span class="text" id="signUpResult"></span>
+                <div id="registerButtonBox">
+                    <input type="button" value="Register" onclick="doRegister()">
+                    <div class="text" id="signUpResult"></div>
+                </div>
             </div>
         </div>
 
@@ -71,7 +73,7 @@
             x.style.left = "-400px";
             y.style.left = "50px";
             z.style.left = "110px";
-            form.style.height = "660px";
+            form.style.height = "700px";
             reg.style.color = "white";
             log.style.color = "black";
         }

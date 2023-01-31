@@ -121,6 +121,15 @@ input[type = button] {
     cursor: pointer;
 }
 
+#registerButtonBox {
+
+}
+
+#signUpResult {
+    position: relative;
+    top: 20px;
+}
+
 #toggle-login {
     color: white;
 }
