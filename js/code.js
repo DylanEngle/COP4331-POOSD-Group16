@@ -314,16 +314,13 @@ function saveContact(id)
 
 function deleteContact(id)
 {
-	let namef_val = document.getElementById("first_Name" + no).innerText;
-    let namel_val = document.getElementById("last_Name" + no).innerText;
-    nameOne = namef_val.substring(0, namef_val.length);
-    nameTwo = namel_val.substring(0, namel_val.length);
-    let check = confirm('Confirm deletion of contact: ' + nameOne + ' ' + nameTwo);
+	let name_val = document.getElementById("name" + no).innerText;
+    nameOne = name_val.substring(0, name_val.length);
+    let check = confirm('Confirm deletion of contact: ' + nameOne);
     if (check === true) {
         document.getElementById("row" + no + "").outerHTML = "";
         let tmp = {
-            firstName: nameOne,
-            lastName: nameTwo,
+            name: nameOne,
             userId: userId
         };
 
