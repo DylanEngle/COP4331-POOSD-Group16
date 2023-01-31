@@ -55,6 +55,10 @@
                                 <div class="number" data-number></div>
                                 <div class="email" data-email></div>
                             </div>
+
+                            <button id="edit-contact-button" onclick="toggleEditContact()">
+                                <img src="images/settingsGear.png" alt="edit user" id="edit-contact-img">
+                            </button>
                         </div>
                     </template>
                 </div>
@@ -73,6 +77,24 @@
                         <input type="text" name="email" id="email">
         
                         <input type="button" value="Create">
+                    </div>
+                </div>
+
+                <div class="edit-contact-container">
+                    <h3>Edit Contact</h3>
+        
+                    <div id="edit-contact" class="input-group" action="">
+                        <label for="Name">Name</label>
+                        <input type="text" name="name" id="name">
+        
+                        <label for="Number">Phone Number</label>
+                        <input type="text" name="number" id="number">
+        
+                        <label for="Email">Email</label>
+                        <input type="text" name="email" id="email">
+        
+                        <input type="button" value="Confirm" onclick="toggleEditContact()">
+                        <input type="button" value="Delete" id="delete-button" onclick="toggleEditContact()">
                     </div>
                 </div>
             </div>

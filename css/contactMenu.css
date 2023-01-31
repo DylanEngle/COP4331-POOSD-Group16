@@ -129,6 +129,19 @@ input[type = 'search'] {
     color: #777;
 }
 
+#edit-contact-button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    margin-top: 10px;
+}
+
+#edit-contact-img {
+    height: 20px;
+    width: 20px;
+}
+
 .add-contact-container {
     position: absolute;
     top: -700%;
@@ -153,6 +166,27 @@ input[type = 'search'] {
     margin-left: 40px;
     position: relative;
     width: 80%;
+}
+
+.edit-contact-container {
+    position: absolute;
+    top: -700%;
+    left: 50%;
+    z-index: 30;
+    margin-right: -50%;
+    transform: translate(-50%);
+    width: 380px;
+    height: 600px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 30px;
+    transition: .5s;
+    border: 2px solid #087FCF;
+}
+
+.edit-contact-container > h3 {
+    margin-top: 1em;
+    color: #087FCF;
 }
 
 label {
@@ -184,6 +218,12 @@ input[type = button] {
     border-radius: 50px;
     font-size: 1.3em;
     cursor: pointer;
+}
+
+#delete-button {
+    background: linear-gradient(to right, #c70f0f, #d24747);
+    height: 70%;
+    width: 50%;
 }
 
 .add-contact-toggle {
@@ -299,6 +339,10 @@ input[type = button] {
 }
 
 .add-contact-container.is-active {
+    top: 200px;
+}
+
+.edit-contact-container.is-active {
     top: 200px;
 }
 

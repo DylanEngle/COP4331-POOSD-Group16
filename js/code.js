@@ -351,6 +351,12 @@ function deleteContact(id)
     };
 }
 
+function toggleEditContact (){
+	const edit_contact_container = document.querySelector('.edit-contact-container');
+
+	edit_contact_container.classList.toggle('is-active');
+}
+
 
 
 
