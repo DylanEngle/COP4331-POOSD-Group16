@@ -187,10 +187,10 @@ function addContact()
 	let phoneNumber = document.getElementById("number").value;
 
 	let tmp = {
-		contactName: contactName,
-		contactEmail: email,
-		contactPhoneNumber: phoneNumber,
-		userId: userId
+		Name: contactName,
+		Email: email,
+		Phone: phoneNumber,
+		UserID: userId
 	};
 	
 
@@ -205,8 +205,11 @@ function addContact()
 		xhr.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
 				console.log("Contact Added.");
-				document.getElementById("add-contact-container").reset();
 				loadContacts();
+				document.getElementById("name").value = "";
+				document.getElementById("number").value = "";
+				document.getElementById("email").value = "";
+				window.location.href = "contactMenu.html";
 			}
 		}
 		xhr.send(jsonPayload);
@@ -219,10 +222,13 @@ function loadContacts()
 {
 	let tmp = {
 		search: "",
-		userId: userId
+		UserID: userId
 	};
 
+	console.log("Made it.");
+
 	let jsonPayload = JSON.stringify(tmp);
+	console.log(jsonPayload);
 
 	let url = urlBase + "/SearchContacts." + extension;
 
@@ -230,26 +236,44 @@ function loadContacts()
 	xhr.open("POST",url,true);
 	xhr.setRequestHeader("Content-type","application/json; charset = UTF-8");
 
-	xhr.onreadystatechange = function(){
-		try {
+	try {
+		xhr.onreadystatechange = function(){
+			console.log("state changed");
 			if(this.readyState == 4 && this.status == 200){
 				let jsonObject = JSON.parse(xhr.responseText);
+				console.log(jsonObject);
 				if(jsonObject.error){
-					console.log(jsonObject.error);
-					return;
+						console.log(jsonObject.error);
+						return;
 				}
-				// let text = "starting HTML";
-				// not sure how to display container elements 
-				// document.getElementByID(id).innerHTML = text;
-				// is function in contactMenu.js usable? ask at meeting
+				let text="<table id='contacts-table'>";
+				for(let i = 0; i<jsonObject.results.length;i++){
+					ids[i] = jsonObject.results[i].ID;
+					text += "<tr id='row" + i + "'>";
+					text += "<td class='card'>";
+					text += "<div class='header" + i + "'><span>" + jsonObject.results[i].name + "</span></div>";
+					text += "<div class='body'>";
+					text += "<div class='number" + i + "'><span>" + jsonObject.results[i].number + "</span></div>";
+					text += "<div class='email'>peter@email.com</div>";
+					text += "<div class='email" + i + "'><span>" + jsonObject.results[i].email + "</span></div>";
+					text += "</div>";
+					text += "<button id='edit-contact-button" + i + "'onclick='toggleEditContact(" + i + ")'>";
+					text += "<img src='images/settingsGear.png' alt='edit user' id='edit-contact-img'>";
+					text += "</button>";
+					text += "</td>";       
+					text += "</tr>";
+				}
+				text += "</table>";
+				document.getElementById("tbody").innerHTML = text;
 			}
-			xhr.send(jsonPayload);
-		} catch (error) {
-			console.log(err.message);
-		}
-		
+		};
+		xhr.send(jsonPayload);
+	} catch (error) {
+		console.log(err.message);
 	}
+		
 }
+
 
 //id tells which contact is being edited (in for loop)
 function editContact(id)
@@ -347,7 +371,7 @@ function deleteContact(id)
     };
 }
 
-function toggleEditContact (){
+function toggleEditContact (id){
 	const edit_contact_container = document.querySelector('.edit-contact-container');
 
 	edit_contact_container.classList.toggle('is-active');
