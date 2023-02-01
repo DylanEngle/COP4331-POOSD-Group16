@@ -45,23 +45,53 @@
                     <input type="search" id="search" placeholder="Search" data-search>
                     <img src="images/magnifyingGlass.png" id="search-img">
                 </div>
-        
-                <div class="contacts-container">
-                    <div class="contact-cards" data-contact-cards-container></div>
-                    <template data-contact-template>
-                        <div class="card">
-                            <div class="header" data-header></div>
-                            <div class="body">
-                                <div class="number" data-number></div>
-                                <div class="email" data-email></div>
-                            </div>
 
-                            <button id="edit-contact-button" onclick="toggleEditContact()">
-                                <img src="images/settingsGear.png" alt="edit user" id="edit-contact-img">
-                            </button>
-                        </div>
-                    </template>
+                <div class="contacts-container">
+                    <table id="contacts-table">
+                        <tr>
+                            <td class="card">
+                                <div class="header">Peter Griffin</div>
+                                <div class="body">
+                                    <div class="number">123-456-7890</div>
+                                    <div class="email">peter@email.com</div>
+                                </div>
+
+                                <button id="edit-contact-button" onclick="toggleEditContact()">
+                                    <img src="images/settingsGear.png" alt="edit user" id="edit-contact-img">
+                                </button>
+                            </td>            
+                        </tr>
+
+                        <tr>
+                            <td class="card">
+                                <div class="header">Homer Simpson</div>
+                                <div class="body">
+                                    <div class="number">111-222-3333</div>
+                                    <div class="email">simp@email.com</div>
+                                </div>
+
+                                <button id="edit-contact-button" onclick="toggleEditContact()">
+                                    <img src="images/settingsGear.png" alt="edit user" id="edit-contact-img">
+                                </button>
+                            </td>            
+                        </tr>
+
+                        <tr>
+                            <td class="card">
+                                <div class="header">Frank Sinatra</div>
+                                <div class="body">
+                                    <div class="number">000-111-2345</div>
+                                    <div class="email">franksinatra@email.com</div>
+                                </div>
+
+                                <button id="edit-contact-button" onclick="toggleEditContact()">
+                                    <img src="images/settingsGear.png" alt="edit user" id="edit-contact-img">
+                                </button>
+                            </td>            
+                        </tr>
+                    </table>
                 </div>
+
 
                 <div class="add-contact-container">
                     <h3>Add Contact</h3>
