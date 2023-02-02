@@ -2,6 +2,8 @@ const urlBase = 'http://cop4331group16.xyz/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
+let contactId = 0;
+let rowId = 0;
 let firstName = "";
 let lastName = "";
 const ids = [];
@@ -167,7 +169,7 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		//document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
 
@@ -246,16 +248,16 @@ function loadContacts()
 						console.log(jsonObject.error);
 						return;
 				}
-				let text="<table id='contacts-table'>";
+				let text="<table>";
 				for(let i = 0; i<jsonObject.results.length;i++){
+					console.log(i+": " + jsonObject.results[i]);
 					ids[i] = jsonObject.results[i].ID;
 					text += "<tr id='row" + i + "'>";
 					text += "<td class='card'>";
-					text += "<div class='header" + i + "'><span>" + jsonObject.results[i].name + "</span></div>";
+					text += "<div class='header" + i + "' id='header" + i + "'><span>" + jsonObject.results[i].Name + "</span></div>";
 					text += "<div class='body'>";
-					text += "<div class='number" + i + "'><span>" + jsonObject.results[i].number + "</span></div>";
-					text += "<div class='email'>peter@email.com</div>";
-					text += "<div class='email" + i + "'><span>" + jsonObject.results[i].email + "</span></div>";
+					text += "<div class='number" + i + "'><span>" + jsonObject.results[i].Phone + "</span></div>";
+					text += "<div class='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></div>";
 					text += "</div>";
 					text += "<button id='edit-contact-button" + i + "'onclick='toggleEditContact(" + i + ")'>";
 					text += "<img src='images/settingsGear.png' alt='edit user' id='edit-contact-img'>";
@@ -283,8 +285,7 @@ function editContact(id)
     let email = document.getElementById("email" + id);
     let phone = document.getElementById("number" + id);
 
-    let namef_data = firstNameI.innerText;
-    let namel_data = lastNameI.innerText;
+    let name_data = nameI.innerText;
     let email_data = email.innerText;
     let phone_data = phone.innerText;
 
@@ -296,8 +297,7 @@ function editContact(id)
 //after you enter the edit, if save button is pressed then this function occurs
 function saveContact(id)
 {
-	let namef_val = document.getElementById("namef_text" + no).value;
-    let namel_val = document.getElementById("namel_text" + no).value;
+	let name_val = document.getElementById("name_text" + no).value;
     let email_val = document.getElementById("email_text" + no).value;
     let phone_val = document.getElementById("phone_text" + no).value;
     let id_val = userId;
@@ -336,16 +336,17 @@ function saveContact(id)
     }
 }
 
-function deleteContact(id)
+function deleteContact()
 {
-	let name_val = document.getElementById("name" + no).innerText;
+	let no = rowId;
+	console.log("Delete funciton");
+	let name_val = document.getElementById("header" + no).innerText;
     nameOne = name_val.substring(0, name_val.length);
     let check = confirm('Confirm deletion of contact: ' + nameOne);
     if (check === true) {
         document.getElementById("row" + no + "").outerHTML = "";
         let tmp = {
-            name: nameOne,
-            userId: userId
+            ID: contactId
         };
 
         let jsonPayload = JSON.stringify(tmp);
@@ -360,6 +361,7 @@ function deleteContact(id)
                 if (this.readyState == 4 && this.status == 200) {
 
                     console.log("Contact has been deleted");
+					toggleEditContact(0);
                     loadContacts();
                 }
             };
@@ -369,12 +371,21 @@ function deleteContact(id)
         }
 
     };
+	
 }
 
 function toggleEditContact (id){
+	contactId = ids[id];
+	rowId = id;
+	console.log("Contact ID is: "+contactId);
 	const edit_contact_container = document.querySelector('.edit-contact-container');
 
 	edit_contact_container.classList.toggle('is-active');
+	//console.log("!!"+edit_contact_container.edit-contact.name);
+	//edit_contact_container.edit-contact.name.innerHTML =
+	 //document.getElementById("header" + id).innerHTML;
+   // email_val = document.getElementById("email_text" + no).value;
+    //phone_val = document.getElementById("phone_text" + no).value;
 }
 
 
