@@ -124,7 +124,7 @@ table, td {
     color: #777;
 }
 
-#edit-contact-button {
+.edit-contact-button {
     border: none;
     cursor: pointer;
     appearance: none;
@@ -132,7 +132,7 @@ table, td {
     margin-top: 10px;
 }
 
-#edit-contact-img {
+.edit-contact-img {
     height: 20px;
     width: 20px;
 }

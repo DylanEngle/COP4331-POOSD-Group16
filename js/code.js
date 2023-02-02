@@ -254,13 +254,13 @@ function loadContacts()
 					ids[i] = jsonObject.results[i].ID;
 					text += "<tr id='row" + i + "'>";
 					text += "<td class='card'>";
-					text += "<div class='header" + i + "' id='header" + i + "'><span>" + jsonObject.results[i].Name + "</span></div>";
+					text += "<div class='header' id='header" + i + "'><span>" + jsonObject.results[i].Name + "</span></div>";
 					text += "<div class='body'>";
-					text += "<div class='number" + i + "'><span>" + jsonObject.results[i].Phone + "</span></div>";
-					text += "<div class='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></div>";
+					text += "<div class='number' id='number" + i + "'><span>" + jsonObject.results[i].Phone + "</span></div>";
+					text += "<div class='email' id='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></div>";
 					text += "</div>";
-					text += "<button id='edit-contact-button" + i + "'onclick='toggleEditContact(" + i + ")'>";
-					text += "<img src='images/settingsGear.png' alt='edit user' id='edit-contact-img'>";
+					text += "<button class='edit-contact-button' id='edit-contact-button" + i + "' onclick='toggleEditContact(" + i + ")'>";
+					text += "<img src='images/settingsGear.png' alt='edit user' class='edit-contact-img' id='edit-contact-img'>";
 					text += "</button>";
 					text += "</td>";       
 					text += "</tr>";
