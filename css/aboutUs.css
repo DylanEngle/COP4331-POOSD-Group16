@@ -8,7 +8,12 @@
 }
 
 .app {
+    height: 100%;
+    width: 100%;
     background-image: url('../images/network.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     min-height: 100vh;
 }
@@ -18,11 +23,11 @@ header {
     z-index: 10;
 }
 
-.app a {
+#network {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 2rem;
     text-transform: uppercase;
 }
 
@@ -91,7 +96,6 @@ header {
   .gridItem img {
     width: 45%;
     height: auto;
-    opacity: 80%;
   }
 
   .bottomRow{
@@ -107,7 +111,6 @@ header {
   .bottomRow img{
     width: 45%;
     height: auto;
-    opacity: 80%;
   }
 
 
