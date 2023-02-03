@@ -270,6 +270,37 @@ function loadContacts()
 		
 }
 
+// Search function that allows search of contact name, number, and email
+function searchContacts() {
+    const searchedText = document.getElementById("searchedText");
+    const filter = searchedText.value.toUpperCase();
+    const table = document.getElementById("contacts-table");
+    const tr = table.getElementsByTagName("tr");
+
+    for (let i = 0; i < tr.length; i++) {
+        const contactName = tr[i].getElementsByTagName("div")[0]; // Name of curr contact
+        const contactNumber = tr[i].getElementsByTagName("div")[1].getElementsByTagName("div")[0]; // Number of curr contact
+        const contactEmail = tr[i].getElementsByTagName("div")[1].getElementsByTagName("div")[1]; // Email of curr contact
+
+        if (contactName) {
+            const txtValueName = contactName.textContent || contactName.innerText;
+            const txtValueNumber = contactNumber.textContent || contactNumber.innerText;
+            const txtValueEmail = contactEmail.textContent || contactEmail.innerText;
+
+            if(txtValueName.toUpperCase().indexOf(filter) > -1 ||
+                txtValueNumber.toUpperCase().indexOf(filter) > -1 ||
+                txtValueEmail.toUpperCase().indexOf(filter) > -1) {
+
+                tr[i].style.display = "";
+            }
+
+            else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
 //after you enter the edit, if save button is pressed then this function occurs
 function editContact()
 {
