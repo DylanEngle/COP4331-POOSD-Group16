@@ -108,6 +108,17 @@ input[type = text] {
     margin-bottom: 1.2em;
 }
 
+input[type = password] {
+    border: 1px solid gray;
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 1em;
+    margin-top: .5em;
+    margin-bottom: 1.2em;
+}
+
+
 input[type = button] {
     background: linear-gradient(to right, #087FCF, #3fadd1);
     border: none;
