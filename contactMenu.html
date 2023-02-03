@@ -13,6 +13,9 @@
 			loadContacts();
 		}, false);
 	</script>
+    <script>
+        
+    </script>
     <title>Contacts</title>
 </head>
 <body>
@@ -95,15 +98,15 @@
         
                     <div id="edit-contact" class="input-group" action="">
                         <label for="Name">Name</label>
-                        <input type="text" name="name" id="name">
+                        <input type="text" name="name" id="editName">
         
                         <label for="Number">Phone Number</label>
-                        <input type="text" name="number" id="number">
+                        <input type="text" name="number" id="editNumber">
         
                         <label for="Email">Email</label>
-                        <input type="text" name="email" id="email">
+                        <input type="text" name="email" id="editEmail">
         
-                        <input type="button" value="Confirm" onclick="toggleEditContact()">
+                        <input type="button" value="Confirm" onclick="editContact()">
                         <input type="button" value="Delete" id="delete-button" onclick="deleteContact()">
                     </div>
                 </div>
@@ -125,6 +128,7 @@
         const add_contact_container = document.querySelector('.add-contact-container');
 
         add_contact_toggle.addEventListener('click', () => {
+            document.getElementById("new-contact").scrollIntoView({behavior: 'smooth'});
             add_contact_toggle.classList.toggle('is-active');
             add_contact_container.classList.toggle('is-active');
         })

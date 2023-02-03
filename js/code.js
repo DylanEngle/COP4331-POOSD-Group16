@@ -227,10 +227,7 @@ function loadContacts()
 		UserID: userId
 	};
 
-	console.log("Made it.");
-
 	let jsonPayload = JSON.stringify(tmp);
-	console.log(jsonPayload);
 
 	let url = urlBase + "/SearchContacts." + extension;
 
@@ -240,17 +237,14 @@ function loadContacts()
 
 	try {
 		xhr.onreadystatechange = function(){
-			console.log("state changed");
 			if(this.readyState == 4 && this.status == 200){
 				let jsonObject = JSON.parse(xhr.responseText);
-				console.log(jsonObject);
 				if(jsonObject.error){
 						console.log(jsonObject.error);
 						return;
 				}
 				let text="<table>";
 				for(let i = 0; i<jsonObject.results.length;i++){
-					console.log(i+": " + jsonObject.results[i]);
 					ids[i] = jsonObject.results[i].ID;
 					text += "<tr id='row" + i + "'>";
 					text += "<td class='card'>";
@@ -276,49 +270,37 @@ function loadContacts()
 		
 }
 
-
-//id tells which contact is being edited (in for loop)
-function editContact(id)
-{
-
-    let nameI = document.getElementById("name" + id);
-    let email = document.getElementById("email" + id);
-    let phone = document.getElementById("number" + id);
-
-    let name_data = nameI.innerText;
-    let email_data = email.innerText;
-    let phone_data = phone.innerText;
-
-    nameI.innerHTML = "<input type='text' id='namef_text" + id + "' value='" + namef_data + "'>";
-    email.innerHTML = "<input type='text' id='email_text" + id + "' value='" + email_data + "'>";
-    phone.innerHTML = "<input type='text' id='phone_text" + id + "' value='" + phone_data + "'>"
-}
-
 //after you enter the edit, if save button is pressed then this function occurs
-function saveContact(id)
+function editContact()
 {
-	let name_val = document.getElementById("name_text" + no).value;
-    let email_val = document.getElementById("email_text" + no).value;
-    let phone_val = document.getElementById("phone_text" + no).value;
-    let id_val = userId;
+	let no = rowId;
+	console.log(userId);
+	console.log(no);
+	let name_val = document.getElementById("editName").value;
+    let phone_val = document.getElementById("editNumber").value;
+    let email_val = document.getElementById("editEmail").value;
+    let id_val = ids[no];
+	console.log(name_val);
+	console.log(phone_val);
+	console.log(email_val);
+	console.log(id_val);
 
-    document.getElementById("first_Name" + no).innerHTML = namef_val;
-    document.getElementById("last_Name" + no).innerHTML = namel_val;
-    document.getElementById("email" + no).innerHTML = email_val;
-    document.getElementById("phone" + no).innerHTML = phone_val;
+    document.getElementById("header" + no).innerHTML = name_val;
+    document.getElementById("contactEmail" + no).innerHTML = email_val;
+   	document.getElementById("contactNumber" + no).innerHTML = phone_val;
 
 
     let tmp = {
-        phoneNumber: phone_val,
-        emailAddress: email_val,
-        newFirstName: namef_val,
-        newLastName: namel_val,
-        id: id_val
+        Phone: phone_val,
+        Email: email_val,
+        Name: name_val,
+        UserID: userId,
+		ID: id_val
     };
 
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/UpdateContacts.' + extension;
+    let url = urlBase + '/EditContacts.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -327,6 +309,7 @@ function saveContact(id)
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 console.log("Contact has been updated");
+				toggleEditContact(0);
                 loadContacts();
             }
         };
@@ -339,7 +322,6 @@ function saveContact(id)
 function deleteContact()
 {
 	let no = rowId;
-	console.log("Delete funciton");
 	let name_val = document.getElementById("header" + no).innerText;
     nameOne = name_val.substring(0, name_val.length);
     let check = confirm('Confirm deletion of contact: ' + nameOne);
@@ -375,9 +357,9 @@ function deleteContact()
 }
 
 function toggleEditContact (id){
+	document.getElementById("edit-contact").scrollIntoView({behavior: 'smooth'});
 	contactId = ids[id];
 	rowId = id;
-	console.log("Contact ID is: "+contactId);
 	const edit_contact_container = document.querySelector('.edit-contact-container');
 
 	edit_contact_container.classList.toggle('is-active');
