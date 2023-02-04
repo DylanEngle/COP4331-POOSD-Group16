@@ -27,7 +27,6 @@
                 <span class="text" id="loginResult" ></span>
                 <label for="Username">User ID</label>
                 <input type="text" name="username" id="loginUsername">
-
                 <label for="Password">Password</label>
                 <input type="password" name="password" id="loginPassword">
 
@@ -35,6 +34,7 @@
             </div>
 
             <div id="register" class="input-group" action="">
+                <span class="text" id="signUpResult"></span>
                 <label for="First Name">First Name</label>
                 <input type="text" name="nameFirst" id="registerNameFirst">
 
@@ -42,15 +42,15 @@
                 <input type="text" name="nameLast" id="registerNameLast">
 
                 <label for="Username">Username</label>
-                <input type="text" name="username" id="registerUsername">
+                <input type="text" name="username" id="registerUsername" onclick="showLoginReq()">
 
                 <label for="Password">Password</label>
-                <input type="password" name="password" id="registerPassword">
+                <input type="password" name="password" id="registerPassword" onclick="showPasswordReq()">
 
                 <div id="registerButtonBox">
                     <input type="button" value="Register" onclick="doRegister()">
-                    <div class="text" id="signUpResult"></div>
                 </div>
+                <div id="req"></div>
             </div>
         </div>
 
@@ -85,6 +85,14 @@
             form.style.height = "440px"
             reg.style.color = "black";
             log.style.color = "white";
+        }
+
+        function showLoginReq(){
+            document.getElementById("req").innerHTML = " <h3>Username must contain the following:</h3><ul><li>3 to 18 characters</li><li>At least one letter</li></ul>"
+        }
+
+        function showPasswordReq(){
+            document.getElementById("req").innerHTML = "<h3>Password must contain the following:</h3><ul><li>8 to 32 characters</li><li>At least one letter</li><li>At least one number</li><li>At least one special character</li></ul>"
         }
     </script>
 </body>
