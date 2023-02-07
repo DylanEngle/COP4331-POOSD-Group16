@@ -354,6 +354,7 @@ function searchContacts() {
             const txtValueNumber = contactNumber.textContent || contactNumber.innerText;
             const txtValueEmail = contactEmail.textContent || contactEmail.innerText;
 
+			// Only display contacts that contain the searched string
             if(txtValueName.toUpperCase().indexOf(filter) > -1 ||
                 txtValueNumber.toUpperCase().indexOf(filter) > -1 ||
                 txtValueEmail.toUpperCase().indexOf(filter) > -1) {
