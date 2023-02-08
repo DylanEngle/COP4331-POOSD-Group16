@@ -5,19 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/contactMenu.css">
-    <!--<script src="js/contactMenu.js" defer></script>-->
     <script type="text/javascript" src="js/code.js"></script>
     <script type="text/javascript">
 		document.addEventListener('DOMContentLoaded', function () {
 			readCookie();
 			loadContacts();
 		}, false);
-	</script>
-    <script>
-        
-    </script>
+	</script>  
     <title>Contacts</title>
 </head>
+
 <body>
     <div class="app">
         <div class="button-container">
@@ -81,6 +78,10 @@
 
                 <div class="edit-contact-container">
                     <h3>Edit Contact</h3>
+
+                    <div class="close-button">
+                        <a href="#" class="close" onclick="toggleEditContact(0)"></a>
+                    </div>
         
                     <div id="edit-contact" class="input-group" action="">
                         <label for="Name">Name</label>

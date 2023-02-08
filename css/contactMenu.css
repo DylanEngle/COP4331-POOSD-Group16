@@ -179,9 +179,40 @@ table, td {
     border: 2px solid #087FCF;
 }
 
+.close {
+    position: absolute;
+    right: 32px;
+    top: 16px;
+    width: 20px;
+    height: 32px;
+    opacity: 0.3;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width:  2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
 .edit-contact-container > h3 {
     margin-top: 1em;
     color: #087FCF;
+    size: 30px;
 }
 
 label {
@@ -190,6 +221,7 @@ label {
     margin-top: 1em;
     font-size: 1.2em;
     text-align: left;
+    text-decoration: none;
 }
 
 input[type = text] {
