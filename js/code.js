@@ -462,11 +462,14 @@ function toggleEditContact (id){
 	const edit_contact_container = document.querySelector('.edit-contact-container');
 
 	edit_contact_container.classList.toggle('is-active');
-	//console.log("!!"+edit_contact_container.edit-contact.name);
-	//edit_contact_container.edit-contact.name.innerHTML =
-	 //document.getElementById("header" + id).innerHTML;
-   // email_val = document.getElementById("email_text" + no).value;
-    //phone_val = document.getElementById("phone_text" + no).value;
+
+	let tempHeader = document.getElementById("header" + id).innerText;
+	let tempNumber = document.getElementById("contactNumber" + id).innerText;
+	let tempEmail = document.getElementById("contactEmail" + id).innerText;
+
+	document.getElementById("editName").value = tempHeader;
+    document.getElementById("editNumber").value = tempNumber;
+	document.getElementById("editEmail").value = tempEmail;
 }
 
 
