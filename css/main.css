@@ -154,7 +154,7 @@ input[type = button] {
 }
 
 #form-container {
-    height: 440px;
+    height: 520px;
 }
 
 @media (min-width: 930px) {
